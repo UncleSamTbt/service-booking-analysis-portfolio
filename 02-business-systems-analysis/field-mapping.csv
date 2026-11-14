@@ -1,0 +1,14 @@
+requirement,proposed_intake,proposed_record_field,logical_model,demo_csv,transformation_or_constraint
+R-01,Customer selection,customer_id,CUSTOMER.customer_id,customer_id,Use synthetic identifier; no contact details in analytics
+R-01,Service selection,service_code,SERVICE.service_code,service_code,Reject unsupported service code
+R-01,Appointment date,appointment_date,BOOKING.appointment_date,appointment_date,ISO date not before creation
+R-01,Assigned technician,technician_id,TECHNICIAN.technician_id,technician_id,Known reference
+R-01,Request source,channel,BOOKING.channel,channel,Use controlled enum
+R-01,Quoted price,quoted_amount_cents,BOOKING.quoted_amount_cents,quoted_amount_cents,Integer cents; do not use floating-point currency
+R-02,Outcome selection,status,BOOKING.status,status,Controlled transition from scheduled to terminal outcome
+R-02,Time spent,actual_minutes,BOOKING.actual_minutes,actual_minutes,Positive integer only for completed
+R-02,Cancellation explanation,cancellation_reason,BOOKING.cancellation_reason,cancellation_reason,Required only for cancelled
+R-03,Collected amount,paid_amount_cents,PAYMENT.paid_amount_cents,paid_amount_cents,Completed only; cannot exceed quote
+R-04,Reporting filters,service_code/status/channel/month,Reporting read model,Derived from booking rows,Filter before aggregation
+R-05,Authorised actor,actor_id and role,AUDIT_EVENT.actor_id,Not in demonstration CSV,Proposed access and audit design only
+R-06,Optional rating,satisfaction_score,FEEDBACK.satisfaction_score,satisfaction_score,Completed only; integer 1 to 5

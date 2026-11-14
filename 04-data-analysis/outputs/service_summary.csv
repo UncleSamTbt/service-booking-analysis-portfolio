@@ -1,0 +1,4 @@
+service_code,booking_count,resolved_count,completed_count,cancelled_count,no_show_count,scheduled_count,collected_revenue_cents,completion_rate_pct,cancellation_rate_pct,mean_lead_days,feedback_response_count,average_feedback_score,average_service_minutes
+CLEAN,48,44,31,8,5,4,1390500,70.454545,18.181818,11.354167,22,4.090909,98.225806
+GARDEN,48,44,31,9,4,4,1700500,70.454545,20.454545,10.75,22,4.0,133.064516
+REPAIR,48,44,31,9,4,4,2010500,70.454545,20.454545,10.125,22,4.409091,66.290323

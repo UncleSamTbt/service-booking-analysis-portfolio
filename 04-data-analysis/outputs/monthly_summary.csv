@@ -1,0 +1,5 @@
+month,booking_count,resolved_count,completed_count,cancelled_count,no_show_count,scheduled_count,collected_revenue_cents,completion_rate_pct,cancellation_rate_pct,mean_lead_days,feedback_response_count,average_feedback_score,average_service_minutes
+2026-01,49,49,35,9,5,0,1940500,71.428571,18.367347,10.938776,25,4.24,92.142857
+2026-02,40,40,26,9,5,0,1404000,65.0,22.5,9.775,18,4.111111,109.038462
+2026-03,43,43,32,8,3,0,1757000,74.418605,18.604651,11.186047,23,4.130435,98.90625
+2026-04,12,0,0,0,0,12,0,,,11.583333,0,,

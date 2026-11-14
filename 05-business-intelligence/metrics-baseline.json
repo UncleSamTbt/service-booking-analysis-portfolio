@@ -1,0 +1,126 @@
+[
+  {
+    "name": "all",
+    "filters": {},
+    "metrics": {
+      "booking_count": 144,
+      "resolved_count": 132,
+      "completed_count": 93,
+      "cancelled_count": 26,
+      "no_show_count": 13,
+      "scheduled_count": 12,
+      "collected_revenue_cents": 5101500,
+      "completion_rate_pct": 70.454545,
+      "cancellation_rate_pct": 19.69697,
+      "mean_lead_days": 10.743056,
+      "feedback_response_count": 66,
+      "average_feedback_score": 4.166667,
+      "average_service_minutes": 99.193548
+    }
+  },
+  {
+    "name": "clean",
+    "filters": {
+      "service_code": "CLEAN"
+    },
+    "metrics": {
+      "booking_count": 48,
+      "resolved_count": 44,
+      "completed_count": 31,
+      "cancelled_count": 8,
+      "no_show_count": 5,
+      "scheduled_count": 4,
+      "collected_revenue_cents": 1390500,
+      "completion_rate_pct": 70.454545,
+      "cancellation_rate_pct": 18.181818,
+      "mean_lead_days": 11.354167,
+      "feedback_response_count": 22,
+      "average_feedback_score": 4.090909,
+      "average_service_minutes": 98.225806
+    }
+  },
+  {
+    "name": "january",
+    "filters": {
+      "month": "2026-01"
+    },
+    "metrics": {
+      "booking_count": 49,
+      "resolved_count": 49,
+      "completed_count": 35,
+      "cancelled_count": 9,
+      "no_show_count": 5,
+      "scheduled_count": 0,
+      "collected_revenue_cents": 1940500,
+      "completion_rate_pct": 71.428571,
+      "cancellation_rate_pct": 18.367347,
+      "mean_lead_days": 10.938776,
+      "feedback_response_count": 25,
+      "average_feedback_score": 4.24,
+      "average_service_minutes": 92.142857
+    }
+  },
+  {
+    "name": "completed",
+    "filters": {
+      "status": "completed"
+    },
+    "metrics": {
+      "booking_count": 93,
+      "resolved_count": 93,
+      "completed_count": 93,
+      "cancelled_count": 0,
+      "no_show_count": 0,
+      "scheduled_count": 0,
+      "collected_revenue_cents": 5101500,
+      "completion_rate_pct": 100.0,
+      "cancellation_rate_pct": 0.0,
+      "mean_lead_days": 10.505376,
+      "feedback_response_count": 66,
+      "average_feedback_score": 4.166667,
+      "average_service_minutes": 99.193548
+    }
+  },
+  {
+    "name": "scheduled",
+    "filters": {
+      "status": "scheduled"
+    },
+    "metrics": {
+      "booking_count": 12,
+      "resolved_count": 0,
+      "completed_count": 0,
+      "cancelled_count": 0,
+      "no_show_count": 0,
+      "scheduled_count": 12,
+      "collected_revenue_cents": 0,
+      "completion_rate_pct": null,
+      "cancellation_rate_pct": null,
+      "mean_lead_days": 11.583333,
+      "feedback_response_count": 0,
+      "average_feedback_score": null,
+      "average_service_minutes": null
+    }
+  },
+  {
+    "name": "empty",
+    "filters": {
+      "month": "2099-01"
+    },
+    "metrics": {
+      "booking_count": 0,
+      "resolved_count": 0,
+      "completed_count": 0,
+      "cancelled_count": 0,
+      "no_show_count": 0,
+      "scheduled_count": 0,
+      "collected_revenue_cents": 0,
+      "completion_rate_pct": null,
+      "cancellation_rate_pct": null,
+      "mean_lead_days": null,
+      "feedback_response_count": 0,
+      "average_feedback_score": null,
+      "average_service_minutes": null
+    }
+  }
+]

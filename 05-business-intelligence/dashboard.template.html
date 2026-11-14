@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Service booking insights | Synthetic learning portfolio</title>
+<style>
+:root{--ink:#18302f;--muted:#556c69;--paper:#f2f5f2;--panel:#fff;--line:#dce5df;--teal:#176a5d;--amber:#a96816;--red:#a04447;--blue:#486d9b}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}main{max-width:1260px;margin:auto;padding:38px 28px 48px}header{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:22px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}h1{font-size:clamp(27px,4vw,40px);line-height:1.12;margin:9px 0 12px;letter-spacing:-.035em}h2{font-size:19px;margin:0 0 7px}p{margin:0 0 12px}.subtle,small{color:var(--muted)}.stamp{padding:11px 16px;border:1px solid var(--line);border-radius:9px;font-size:13px;background:#fff;min-width:190px}.notice{background:#e5efe8;border-left:4px solid var(--teal);padding:12px 16px;border-radius:5px;margin:18px 0 24px;font-size:13px}.filters{display:grid;grid-template-columns:repeat(4,minmax(100px,1fr)) auto;gap:14px;align-items:end;padding:20px;background:#fff;border:1px solid var(--line);border-radius:12px}label{display:grid;gap:6px;font-size:12px;font-weight:700;color:var(--muted)}select,button{font:inherit;border:1px solid #bacdc5;border-radius:6px;padding:10px 12px;background:#fff;color:var(--ink)}select{min-width:0;width:100%}button{cursor:pointer;font-weight:650;font-size:13px;white-space:nowrap}button:hover{background:#eaf1eb}button:focus-visible,select:focus-visible{outline:3px solid #cb9f4c;outline-offset:3px}.statusline{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:15px 0;font-size:13px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px}.card{padding:20px}.label{font-size:12px;font-weight:700;color:var(--muted)}.value{font-size:clamp(24px,2.5vw,34px);letter-spacing:-.04em;font-weight:720;margin:5px 0}.detail{font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1.35fr;gap:20px;margin-bottom:20px}.panel{padding:22px;min-width:0}.panel p{font-size:13px}.outcome{display:grid;grid-template-columns:95px 1fr 45px;gap:12px;align-items:center;margin-top:18px;font-size:13px}.track{height:10px;border-radius:20px;background:#edf1ee;overflow:hidden}.bar{height:100%;background:var(--teal);border-radius:20px}.service-row{margin-top:16px}.service-line{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}.service-line span{color:var(--muted)}.micro{display:flex;gap:24px;flex-wrap:wrap;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:12px}.micro strong{display:block;font-size:18px;color:var(--ink)}.table-scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th{color:var(--muted);font-weight:650;font-size:11px;text-transform:uppercase;letter-spacing:.04em;text-align:left;background:#f5f7f4}td,th{padding:12px;border-bottom:1px solid var(--line);white-space:nowrap}.num{text-align:right}.badge{display:inline-block;border-radius:20px;padding:3px 8px;font-size:11px;background:#e6eee7;color:#31534a}.bottom{margin-top:20px}.footer{margin-top:24px;color:var(--muted);font-size:12px;max-width:960px}.empty{padding:18px;color:var(--muted)}@media(max-width:850px){.filters{grid-template-columns:1fr 1fr}.cards{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}header{flex-direction:column}.stamp{min-width:0}}@media(max-width:480px){main{padding:24px 16px}.cards{gap:10px}.card{padding:15px}.filters{padding:15px;gap:10px}.statusline{align-items:flex-start}.value{font-size:25px}}
+</style>
+</head>
+<body><main>
+<header><div><div class="eyebrow">Analyst learning portfolio / 05</div><h1>Service booking insights</h1><p class="subtle">A shared view of booking outcomes and collected payments.</p></div><div class="stamp"><strong>Demo Service Co.</strong><br>Synthetic snapshot<br>31 March 2026</div></header>
+<div class="notice"><strong>Fictional business · synthetic records · reporting practice project.</strong> This implemented dashboard describes an invented dataset. Future scheduled bookings appear in booking totals and are excluded from outcome-rate denominators.</div>
+<section class="filters" aria-label="Booking filters">
+<label>Service<select id="service_code"><option value="">All services</option><option value="CLEAN">Cleaning</option><option value="REPAIR">Repairs</option><option value="GARDEN">Gardening</option></select></label>
+<label>Outcome<select id="status"><option value="">All outcomes</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option><option value="no_show">No-show</option><option value="scheduled">Scheduled</option></select></label>
+<label>Request channel<select id="channel"><option value="">All channels</option><option value="phone">Phone</option><option value="web">Web</option><option value="messaging">Messaging</option></select></label>
+<label>Appointment month<select id="month"><option value="">All months</option></select></label><button id="reset" type="button">Reset filters</button>
+</section>
+<div class="statusline"><span id="selection" aria-live="polite"></span><button id="export" type="button">Download selected CSV</button></div>
+<section class="cards" aria-label="Key performance indicators">
+<article class="card"><div class="label">BOOKINGS</div><div class="value" id="booking_count"></div><div class="detail" id="resolved_detail"></div></article>
+<article class="card"><div class="label">COLLECTED REVENUE</div><div class="value" id="collected_revenue_cents"></div><div class="detail">Completed bookings only</div></article>
+<article class="card"><div class="label">COMPLETION RATE</div><div class="value" id="completion_rate_pct"></div><div class="detail">Completed / resolved bookings</div></article>
+<article class="card"><div class="label">CANCELLATION RATE</div><div class="value" id="cancellation_rate_pct"></div><div class="detail">Cancelled / resolved bookings</div></article>
+</section>
+<div class="grid"><section class="panel"><h2>Booking outcomes</h2><p class="subtle">Counts within the current selection.</p><div id="outcomes"></div><div class="micro"><div><strong id="lead"></strong>Average lead days</div><div><strong id="duration"></strong>Average service minutes</div></div></section>
+<section class="panel"><h2>Collected revenue by service</h2><p class="subtle">Recorded payments, not quoted value or profit.</p><div id="services"></div><div class="micro"><div><strong id="feedback"></strong>Average feedback / 5</div><div><strong id="respondents"></strong>Feedback responses</div></div></section></div>
+<section class="panel"><h2>Appointment-month summary</h2><p class="subtle">Monthly counts and revenue reconcile to the selected totals above.</p><div class="table-scroll"><table><thead><tr><th>Month</th><th class="num">Bookings</th><th class="num">Completed</th><th class="num">Cancelled</th><th class="num">No-show</th><th class="num">Scheduled</th><th class="num">Collected</th></tr></thead><tbody id="months"></tbody></table></div></section>
+<section class="panel bottom"><h2>Selected booking records</h2><p class="subtle" id="preview-note"></p><div class="table-scroll"><table><thead><tr><th>ID</th><th>Appointment</th><th>Service</th><th>Channel</th><th>Outcome</th><th class="num">Collected</th></tr></thead><tbody id="records"></tbody></table></div></section>
+<p class="footer"><strong>Definitions:</strong> resolved = completed + cancelled + no-show. Blank rates represent an empty denominator. Feedback excludes missing responses. Lead time includes all selected bookings; service duration includes completed bookings only. Generated patterns are not representative market evidence. All calculations run locally; no data is sent to a service.</p>
+</main>
+<script id="portfolio-data" type="application/json">__DATA_JSON__</script>
+<script>__METRICS_JS__</script>
+<script>
+'use strict';
+const payload = JSON.parse(document.getElementById('portfolio-data').textContent);
+const allRecords = payload.records;
+const {filterBookings, computeMetrics} = globalThis.PortfolioMetrics;
+const filterIds = ['service_code', 'status', 'channel', 'month'];
+const serviceNames = {CLEAN:'Cleaning', REPAIR:'Repairs', GARDEN:'Gardening'};
+const outcomeNames = {completed:'Completed', cancelled:'Cancelled', no_show:'No-show', scheduled:'Scheduled'};
+const money = cents => new Intl.NumberFormat('en-ZA',{style:'currency',currency:'ZAR',maximumFractionDigits:2}).format(cents/100);
+const number = (value, suffix='') => value === null ? '—' : value.toFixed(1)+suffix;
+const monthLabel = month => new Intl.DateTimeFormat('en-ZA',{month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(month+'-01T00:00:00Z'));
+const text = (id, value) => { document.getElementById(id).textContent = value; };
+let selected = allRecords;
+for (const month of [...new Set(allRecords.map(row=>row.appointment_date.slice(0,7)))].sort()) {
+ const option=document.createElement('option'); option.value=month; option.textContent=monthLabel(month); document.getElementById('month').append(option);
+}
+function update() {
+ const filters=Object.fromEntries(filterIds.map(id=>[id,document.getElementById(id).value]));
+ selected=filterBookings(allRecords,filters); const m=computeMetrics(selected);
+ text('selection', `${m.booking_count} of ${allRecords.length} synthetic bookings selected`);
+ text('booking_count',m.booking_count); text('resolved_detail',`${m.resolved_count} resolved · ${m.scheduled_count} future scheduled`);
+ text('collected_revenue_cents',money(m.collected_revenue_cents));
+ text('completion_rate_pct',number(m.completion_rate_pct,'%')); text('cancellation_rate_pct',number(m.cancellation_rate_pct,'%'));
+ text('lead',number(m.mean_lead_days)); text('duration',number(m.average_service_minutes));
+ text('feedback',number(m.average_feedback_score)); text('respondents',m.feedback_response_count);
+ const colours={completed:'var(--teal)',cancelled:'var(--amber)',no_show:'var(--red)',scheduled:'var(--blue)'};
+ document.getElementById('outcomes').innerHTML=Object.keys(outcomeNames).map(status=>`<div class="outcome"><span>${outcomeNames[status]}</span><div class="track"><div class="bar" style="width:${m.booking_count ? 100*m[status+'_count']/m.booking_count : 0}%;background:${colours[status]}"></div></div><strong class="num">${m[status+'_count']}</strong></div>`).join('');
+ const services=Object.keys(serviceNames).map(code=>({code,...computeMetrics(filterBookings(selected,{service_code:code}))}));
+ const largest=Math.max(1,...services.map(item=>item.collected_revenue_cents));
+ document.getElementById('services').innerHTML=services.map(item=>`<div class="service-row"><div class="service-line"><strong>${serviceNames[item.code]}</strong><span>${item.booking_count} bookings · ${money(item.collected_revenue_cents)}</span></div><div class="track"><div class="bar" style="width:${100*item.collected_revenue_cents/largest}%"></div></div></div>`).join('');
+ const months=[...new Set(selected.map(row=>row.appointment_date.slice(0,7)))].sort();
+ document.getElementById('months').innerHTML=months.map(month=>{const x=computeMetrics(filterBookings(selected,{month}));return `<tr><td>${monthLabel(month)}</td>${['booking_count','completed_count','cancelled_count','no_show_count','scheduled_count'].map(key=>`<td class="num">${x[key]}</td>`).join('')}<td class="num">${money(x.collected_revenue_cents)}</td></tr>`;}).join('') || '<tr><td colspan="7" class="empty">No bookings match these filters.</td></tr>';
+ const preview=[...selected].sort((a,b)=>b.appointment_date.localeCompare(a.appointment_date)||a.booking_id.localeCompare(b.booking_id)).slice(0,12);
+ text('preview-note',`Showing ${preview.length} most recent of ${selected.length} selected records. Download CSV for the full selection.`);
+ document.getElementById('records').innerHTML=preview.map(row=>`<tr><td>${row.booking_id}</td><td>${row.appointment_date}</td><td>${serviceNames[row.service_code]}</td><td>${row.channel}</td><td><span class="badge">${outcomeNames[row.status]}</span></td><td class="num">${money(row.paid_amount_cents)}</td></tr>`).join('') || '<tr><td colspan="6" class="empty">No bookings match these filters.</td></tr>';
+ document.getElementById('export').disabled=!selected.length;
+}
+for(const id of filterIds) document.getElementById(id).addEventListener('change',update);
+document.getElementById('reset').addEventListener('click',()=>{for(const id of filterIds)document.getElementById(id).value='';update();});
+document.getElementById('export').addEventListener('click',()=>{
+ if(!selected.length)return; const fields=Object.keys(selected[0]);
+ const escape=value=>'"'+String(value??'').replaceAll('"','""')+'"';
+ const csv=[fields.map(escape).join(','),...selected.map(row=>fields.map(key=>escape(row[key])).join(','))].join('\r\n');
+ const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));const a=document.createElement('a');a.href=url;a.download='synthetic-booking-selection.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+update();
+</script>
+</body></html>

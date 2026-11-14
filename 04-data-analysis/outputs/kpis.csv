@@ -1,0 +1,14 @@
+metric,value
+booking_count,144
+resolved_count,132
+completed_count,93
+cancelled_count,26
+no_show_count,13
+scheduled_count,12
+collected_revenue_cents,5101500
+completion_rate_pct,70.454545
+cancellation_rate_pct,19.69697
+mean_lead_days,10.743056
+feedback_response_count,66
+average_feedback_score,4.166667
+average_service_minutes,99.193548

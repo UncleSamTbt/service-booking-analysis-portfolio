@@ -1,0 +1,17 @@
+field,type,required,definition,validation
+booking_id,string,yes,Synthetic booking identifier,Unique non-empty B followed by four digits
+customer_id,string,yes,Synthetic customer reference,C followed by three digits
+created_date,ISO date,yes,Date request was recorded,Valid YYYY-MM-DD; not after appointment_date or 2026-03-31 snapshot
+appointment_date,ISO date,yes,Planned service date,Valid YYYY-MM-DD and status consistent with 2026-03-31 snapshot
+service_code,enum,yes,Type of service,CLEAN or REPAIR or GARDEN
+customer_segment,enum,yes,Scenario customer grouping,household or small_business
+channel,enum,yes,Request channel,phone or web or messaging
+suburb,enum,yes,Fictional location label,Demo North or Demo Central or Demo South
+technician_id,string,yes,Synthetic assignment reference,T01 through T04
+status,enum,yes,Booking outcome,completed or cancelled or no_show or scheduled
+quoted_amount_cents,integer,yes,Quoted value in ZAR cents,Positive integer
+paid_amount_cents,integer,yes,Collected payment in ZAR cents,Zero to quoted amount and zero unless completed
+scheduled_minutes,integer,yes,Planned duration,Positive integer
+actual_minutes,integer,conditional,Observed duration in the fictional record,Positive for completed and blank otherwise
+satisfaction_score,integer,optional,Optional feedback rating,1 through 5 for completed and blank otherwise
+cancellation_reason,string,conditional,Reason for cancellation,Required for cancelled and blank otherwise

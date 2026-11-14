@@ -1,0 +1,16 @@
+scenario_id,requirement,scenario,precondition_or_input,expected_result,execution_status
+A-01,R-01,Valid intake,Supported references and fields; appointment not before creation,Unique booking ID and scheduled status,Specified - not run; operational application not implemented
+A-02,R-01,Missing or unsupported field,Missing service or unsupported service/channel/reference,Explanatory field message; no record created,Specified - not run; operational application not implemented
+A-03,R-01,Invalid date range,Appointment before creation or invalid calendar date,Explanatory date message; no record created,Specified - not run; operational application not implemented
+A-04,R-02,Complete scheduled booking,Scheduled booking and positive actual minutes,Completed outcome recorded,Specified - not run; operational application not implemented
+A-05,R-02,Cancellation without reason,Scheduled booking and empty cancellation reason,Update blocked; scheduled state retained,Specified - not run; operational application not implemented
+A-06,R-02,Terminal outcome change,Completed booking changed to cancelled or repeated completion,Update blocked; existing outcome retained,Specified - not run; operational application not implemented
+A-07,R-03,Payment boundary values,Completed booking; payment of zero or exactly the quote,Integer-cent aggregate amount recorded,Specified - not run; operational application not implemented
+A-08,R-03,Payment on another outcome,Cancelled or no-show or scheduled booking with payment,Payment blocked; no collected amount recorded,Specified - not run; operational application not implemented
+A-09,R-03,Invalid payment,Negative amount or fractional cents or amount greater than quote,Field error; existing amount retained,Specified - not run; operational application not implemented
+A-10,R-04,Filtered summary,Known service and appointment month,Filters applied before all defined measures,Specified - not run; operational application not implemented
+A-11,R-04,Empty or scheduled-only selection,No matching bookings or only future scheduled bookings,Zero empty counts/revenue; unavailable outcome rates,Specified - not run; operational application not implemented
+A-12,R-05,Unauthorised update,Actor lacks authorised coordinator/manager role,No change; access restriction shown,Specified - not run; operational application not implemented
+A-13,R-05,Authorised update and audit,Authorised actor makes a valid status/payment change,Change records actor and timestamp and previous/new values,Specified - not run; operational application not implemented
+A-14,R-06,Optional valid feedback,Completed booking; missing score or integer score of 1 or 5,Blank stays missing; valid score recorded once,Specified - not run; operational application not implemented
+A-15,R-06,Invalid feedback,Score outside 1–5 or non-integer or booking not completed,Feedback blocked; existing record retained,Specified - not run; operational application not implemented

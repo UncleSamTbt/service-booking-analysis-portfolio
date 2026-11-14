@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "source_filename": "bookings.csv",
+  "snapshot_date": "2026-03-31",
+  "row_count": 144,
+  "rejected_rows": 0,
+  "policy": "Reject the full input on any invalid row; never silently drop or repair data.",
+  "passed_checks": [
+    "exact schema",
+    "unique IDs",
+    "controlled values",
+    "valid calendar dates",
+    "date ordering",
+    "snapshot consistency",
+    "integer amounts",
+    "payment within quote",
+    "completed-only payment/duration/feedback",
+    "feedback range",
+    "cancellation reason"
+  ]
+}

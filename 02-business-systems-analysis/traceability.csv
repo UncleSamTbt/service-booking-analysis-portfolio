@@ -1,0 +1,7 @@
+requirement,acceptance_criteria,data_or_design,proposed_workflow,specified_acceptance_scenarios,executed_analytics_checks
+R-01,AC-01,Required fields and date/service rules,W-01 Booking intake,A-01; A-02; A-03,test_rejects_duplicate_id; test_rejects_unknown_service; test_rejects_invalid_date
+R-02,AC-02,Status and conditional duration/reason,W-02 Outcome recording,A-04; A-05; A-06,test_rejects_noncompleted_actual_time; test_snapshot_rules; test_cancellation_reason_rules
+R-03,AC-03,Integer-cents payment constraints,W-03 Payment recording,A-07; A-08; A-09,test_rejects_noncompleted_payment; test_rejects_overpayment; test_fixture_metrics
+R-04,AC-04,Shared KPI definitions and filters,W-05 Snapshot reporting,A-10; A-11,test_group_reconciliation; dashboard baseline cases
+R-05,AC-05,Proposed access control and audit events,W-06 Controlled updates,A-12; A-13,Operational controls not implemented or executed
+R-06,AC-06,Optional completed-only score,W-04 Feedback recording,A-14; A-15,test_rejects_invalid_feedback; test_missing_feedback_is_excluded; test_fixture_metrics

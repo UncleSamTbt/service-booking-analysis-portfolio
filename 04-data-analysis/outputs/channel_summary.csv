@@ -1,0 +1,4 @@
+channel,booking_count,resolved_count,completed_count,cancelled_count,no_show_count,scheduled_count,collected_revenue_cents,completion_rate_pct,cancellation_rate_pct,mean_lead_days,feedback_response_count,average_feedback_score,average_service_minutes
+messaging,43,40,30,8,2,3,1637000,75.0,20.0,12.046512,20,4.1,96.0
+phone,60,54,37,9,8,6,2017500,68.518519,16.666667,9.683333,28,4.25,99.72973
+web,41,38,26,9,3,3,1447000,68.421053,23.684211,10.926829,18,4.111111,102.115385
